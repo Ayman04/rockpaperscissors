@@ -36,13 +36,13 @@ function match(player,computer){
 }
 
 
-function message(type, decision){
+function message(type, decision = "same object"){
     if(type === "won"){
         console.log("congrats, you won! The computer chose "+ decision);
     } else if(type === "lost"){
         console.log("you lost :( The computer chose " + decision);
     } else{
-        console.log("TIE!");
+        console.log("TIE! " + decision);
     }
 }
 
@@ -58,12 +58,10 @@ function game(){
         } else if(result === "lost"){
             pComputer++
         }
-
-     console.log(pPlayer, pComputer);
-
+        console.log(pPlayer, pComputer);
     }
 
-
+    console.log("Match over" + (pPlayer > pComputer ? "BIG W" : "BIG L"));
 }
 
 game()
