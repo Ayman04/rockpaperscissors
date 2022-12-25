@@ -1,16 +1,4 @@
-function getComputerChoice(){
-    let num = Math.random();
-
-    if(num <= 0.33){
-        return "rock"
-    } else if(num >= 0.33 && num < 0.66){
-        return "scissor"
-    } else {
-        return "paper"
-    }
-}
-
-function match(player,computer){
+function getWinner(player,computer){
     if (player.toLowerCase() === computer.toLowerCase()) {
         message("tie")
         return "tie"
@@ -35,33 +23,18 @@ function match(player,computer){
     }
 }
 
-
-function message(type, decision = "same object"){
-    if(type === "won"){
-        console.log("congrats, you won! The computer chose "+ decision);
-    } else if(type === "lost"){
-        console.log("you lost :( The computer chose " + decision);
-    } else{
-        console.log("TIE! " + decision);
+function getComputersChoice(){
+    let num = Math.random();
+    if(num <= 0.33){
+        return "rock"
+    } else if(num >= 0.33 && num < 0.66){
+        return "scissor"
+    } else {
+        return "paper"
     }
 }
 
-function game(){
-    let pPlayer = 0;
-    let pComputer = 0
-    for(let i = 0; i < 5; i++){
-        let player = prompt("type `rock` `paper` or `scissor`");
-        let result = match(player.toLowerCase(), getComputerChoice());
+const buttons = document.getElementsByTagName("button");
+let playersChoice = "";
+let computersChoice = ""
 
-        if( result === "won"){
-            pPlayer++
-        } else if(result === "lost"){
-            pComputer++
-        }
-        console.log(pPlayer, pComputer);
-    }
-
-    console.log("Match over" + (pPlayer > pComputer ? "BIG W" : "BIG L"));
-}
-
-game()
