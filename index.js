@@ -23,25 +23,13 @@ buttons.forEach(button => {
             changePoints(result);
             spielstand.innerHTML = `${pPlayer} - ${pComputer}`;
             rounds.innerHTML = round + " / 5";
-
             round++
-            
         } else {
             if(pPlayer > pComputer){
                 message.innerHTML = "you won GG. Will you win again?";
             } else{
                 message.innerHTML = "you are a loser. You got another chance!";
             }
-
-            round = round + 1;
-            // bug fixxen
-            /* if (round <= 5) {
-                changePoints(result);
-                round++
-                spielstand.innerHTML = `${pPlayer} - ${pComputer}`;
-                rounds.innerHTML = round + " / 5";
-
-            } */
         }
     })
 });
