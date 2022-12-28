@@ -18,7 +18,7 @@ buttons.forEach(button => {
         if (round <= 5) {
             playersChoice = e.target.textContent;
             computersChoice = getComputersChoice();
-            result = getWinner(playersChoice, "scissor");
+            result = getWinner(playersChoice, getComputersChoice());
             displayMessage(result);
             changePoints(result);
             spielstand.innerHTML = `${pPlayer} - ${pComputer}`;
